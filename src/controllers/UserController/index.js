@@ -10,9 +10,20 @@ const UserController = {
             return res.status(200).json(newUser)
         }catch(err){
 
-            return res.statu(400).json(err)
+            return res.status(400).json(err)
+        }
+    },
+
+    async getUsers(req,res){
+
+        try{ 
+            const users = await User.find()
+            
+            return res.status(200).json(users)
+        } catch(err){
+            return res.status(400).json(err)
         }
     }
-}
 
+}
 module.exports = UserController
